@@ -56,6 +56,7 @@ deploy: build
 	git add -A && \
 	git commit -m "Deploy documentation - $$(date '+%Y-%m-%d %H:%M:%S')" && \
 	git branch -M gh-pages && \
+	git remote remove origin 2>/dev/null || true && \
 	git remote add origin $$(git -C ../.. config --get remote.origin.url) && \
 	git push -f origin gh-pages
 	@echo "✅ Deployment complete! Visit: https://$$(git config --get remote.origin.url | sed 's/.*github.com[:/]\([^/]*\)\/\([^.]*\).*/\1.github.io\/\2/')"
@@ -68,6 +69,7 @@ deploy-force: clean build
 	git add -A && \
 	git commit -m "Force deploy documentation - $$(date '+%Y-%m-%d %H:%M:%S')" && \
 	git branch -M gh-pages && \
+	git remote remove origin 2>/dev/null || true && \
 	git remote add origin $$(git -C ../.. config --get remote.origin.url) && \
 	git push -f origin gh-pages
 	@echo "✅ Force deployment complete!"

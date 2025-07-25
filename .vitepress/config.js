@@ -4,7 +4,10 @@ export default defineConfig({
   title: 'Documentation Site',
   description: 'A VitePress documentation site',
   
-
+  // Base URL for GitHub Pages deployment
+  base: '/sense-table-doc/',
+  
+ 
   
   themeConfig: {
     // Navigation menu
